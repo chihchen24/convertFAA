@@ -1,0 +1,71 @@
+#! /bin/csh
+
+set dir = '/ptmp/cchen/ACCRI_2006_GRIDCELLS/'
+
+set month = 1
+set ndays = 1
+
+while($month <= 12)
+
+if($month == 1) then
+ set max_days = 31
+ set month_name = 'JAN'
+elseif($month == 2) then
+ set max_days = 28
+ set month_name = 'FEB'
+elseif($month == 3) then
+ set max_days = 31
+ set month_name = 'MAR'
+elseif($month == 4) then
+ set max_days = 30
+ set month_name = 'APR'
+elseif($month == 5) then
+ set max_days = 31
+ set month_name = 'MAY'
+elseif($month == 6) then
+ set max_days = 30
+ set month_name = 'JUN'
+elseif($month == 7) then
+ set max_days = 31
+ set month_name = 'JUL'
+elseif($month == 8) then
+ set max_days = 31
+ set month_name = 'AUG'
+elseif($month == 9) then
+ set max_days = 30
+ set month_name = 'SEP'
+elseif($month == 10) then
+ set max_days = 31
+ set month_name = 'OCT'
+elseif($month == 11) then
+ set max_days = 30
+ set month_name = 'NOV'
+elseif($month == 12) then
+ set max_days = 31
+ set month_name = 'DEC'
+endif
+
+set day = 1
+
+while ($day <= $max_days)
+
+set hour = 0
+
+set file = 'InputFAAFileList-'$ndays'.txt'
+
+while($hour <= 23)
+
+echo $dir$month_name'/'$month'_'$day'_2006_'$hour'.txt > $file
+
+@ hour = $hour + 1
+end
+
+
+@ day = $day + 1
+@ ndays = $ndays + 1
+end
+
+
+@ month = $month + 1
+
+end
